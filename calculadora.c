@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <stdbool.h>
+
 
 //Constantes
 #define PI 3.141592653589793
@@ -25,6 +27,7 @@ float multiplicacao(float a, float b){
     return a*b;
 }
 
+
 float divisao(float a, float b){
     if(b!=0)
     return a/b;
@@ -45,6 +48,10 @@ float operando(char const * sinal)
     }
     
 }
+int potencia(int base, int expoente){
+    return pow(base, expoente);
+}
+
 
 //fatorial de um número
 
@@ -59,7 +66,9 @@ int fatorial(int num){
 //Raiz quadrada de um número
 
 float raizQ(float num){
+    if(num>=0)
     return sqrt(num);
+    else printf("Syntax Error!\n");
 }
 
 
@@ -146,9 +155,66 @@ float logaritmoDeBaseN(float x, float base)
 {
     if(x>0 &&(base!=1 && base>0))
     return log(x)/log(base);
-    else printf("Syntax Error");
+    else printf("Syntax Error\n");
+}
+ //Gerador de Números Aleatórios
+ 
+int  randomNum()
+ {
+ return rand()%100;
+     
+ }
+ 
+ //Calcula percentagem
+float percentagem(float x, float u)
+{
+    return((x/u)*100);
 }
 
+
+/*------Equações------*/
+
+//Algoritmo de Euclides 
+int mdc(int a, int b)
+{
+int resto = 1;
+  while(resto!=0) 
+  {
+    resto = a%b; 
+    a = b;
+    b = resto;
+  }
+  return a;
+    }
+ 
+
+
+//Fórmula de Bhaskara
+double retornaX1(float x1)
+{
+    return x1;
+}
+
+double retornaX2(float x2)
+{
+    return x2;
+}
+
+void Bhaskara(int a, int b, int c)
+{
+    float x1, x2;
+
+    
+    a = a/mdc(mdc(a, b), c);
+    b = b/mdc(mdc(a, b), c);
+    c = c/mdc(mdc(a, b), c);
+    int delta = pow(b, 2)-4*(a*c);
+    x1 = (-b + raizQ(delta))/(2*a);
+    x2 = (-b - raizQ(delta))/(2*a);
+    x1 = retornaX1(x1);
+    x2 = retornaX2(x2);
+    
+}
 
 /*Matrizes e determinates*/
 void criarlistaMat(listaMat * LM)
@@ -180,4 +246,52 @@ float ** criarMat(int linhas, int colunas)
         Mat[i] = malloc(sizeof(int)*colunas);
     }
     return (Mat);
+}
+
+/*
+float somaMat(listaMat * LM)
+{
+    for(){
+    for(){
+        
+    }
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Integrais*/
+
+
+static void integraisDeTabela(){
+    
+    
+}
+
+/*--------------Estatística---------------*/
+
+
+static void criarTabela()
+{
+    
 }
