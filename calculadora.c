@@ -164,6 +164,16 @@ int  randomNum()
  return rand()%100;
      
  }
+//Média Aritmétrica
+float media(float * v){
+   int tam  = sizeof(v)/sizeof(v[0]);
+   int i; float media;
+   for (i = 0; i<  tam; i+=1)
+   {
+    media += v[i];    
+   }
+   return media/tam;
+}
  
  //Calcula percentagem
 float percentagem(float x, float u)
